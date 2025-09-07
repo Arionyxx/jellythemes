@@ -1,6 +1,7 @@
 /* Netflix-Style Theme for Jellyfin */
 /* Based on ElegantFin Theme structure by lscambo13 */
 /* Modified to match Netflix UI/UX */
+
 /* Netflix Sans Font Fallback */
 @import url('https://cdn.jsdelivr.net/gh/Arionyxx/jellythemes@main/netflix-sans-core-variable-full.woff2');
 
@@ -120,44 +121,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'liga';
 }
-
-/* ===== FIX FOR VIDEO/AUDIO CONTROLS OVERLAP ISSUE ===== */
-/* Fix the overlapping Video/Audio labels in video player OSD */
-.videoOsdBottom .osdMediaInfo {
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important;
-    flex-wrap: nowrap !important;
-    margin-top: 8px !important;
-}
-
-.videoOsdBottom .osdMediaInfo > * {
-    white-space: nowrap !important;
-    font-size: 13px !important;
-    background: rgba(0, 0, 0, 0.7) !important;
-    padding: 2px 8px !important;
-    border-radius: 3px !important;
-    color: var(--netflixTextGray) !important;
-    margin: 0 !important;
-}
-
-/* Ensure proper spacing in video controls */
-.videoOsdBottom {
-    padding: 15px !important;
-}
-
-.videoOsdBottom .osdTitle {
-    margin-bottom: 10px !important;
-}
-
-/* Style the control buttons properly */
-.videoOsdBottom .btnCommand {
-    margin-right: 8px !important;
-    background: rgba(0, 0, 0, 0.6) !important;
-    color: var(--netflixWhite) !important;
-    border: none !important;
-}
-/* ===== END FIX ===== */
 
 /* Header/Navigation Netflix Style */
 .skinHeader {
@@ -474,6 +437,7 @@ body {
 }
 
 /* NETFLIX-SPECIFIC LAYOUT CHANGES */
+
 /* Navigation Menu - Netflix Style */
 .mainDrawer {
     background-color: var(--netflixBlack) !important;
