@@ -530,7 +530,7 @@ body {
 /* Hero content positioning */
 .detailPagePrimaryContainer {
     position: absolute !important;
-    bottom: 10% !important;
+    bottom: 20% !important;
     left: 4% !important;
     z-index: 2;
     max-width: 40%;
