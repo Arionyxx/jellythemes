@@ -677,3 +677,9 @@ body {
 .adminMenuOptions .navMenuOption[data-itemid="dashboard"] {
     display: flex !important;
 }
+
+/* Override detailRibbon background color */
+.detailRibbon {
+    background: #101010 !important;
+}
+
