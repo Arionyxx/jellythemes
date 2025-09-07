@@ -679,62 +679,46 @@ body {
     display: flex !important;
 }
 
-/* ===== HIDE VIDEO/AUDIO SELECTION DROPDOWNS ===== */
+/* ===== MOVE DETAIL BUTTONS UP TO COVER VIDEO/AUDIO INFO ===== */
 
-/* Hide the entire track selection containers */
-.selectVideoContainer,
-.selectAudioContainer,
-.trackSelectionFieldContainer {
-    display: none !important;
+/* Move the main detail buttons container up to cover Video/Audio technical info */
+.detailPagePrimaryContainer .mainDetailButtons {
+    position: relative !important;
+    z-index: 10 !important;
+    margin-top: -45px !important;
+    background: linear-gradient(to right, var(--netflixBlack) 0%, var(--netflixBlack) 75%, transparent 100%) !important;
+    padding: 20px 0 30px 0 !important;
 }
 
-/* Hide by specific class combinations */
-.selectContainer.selectVideoContainer,
-.selectContainer.selectAudioContainer {
-    display: none !important;
+/* Ensure proper styling for the moved buttons */
+.mainDetailButtons .detailButton {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: none !important;
+    color: var(--netflixWhite) !important;
+    border-radius: 4px !important;
+    margin-right: 12px !important;
+    padding: 12px 16px !important;
+    transition: all 0.2s !important;
 }
 
-/* Hide the select elements and their labels */
-.selectVideo.detailTrackSelect,
-.selectAudio.detailTrackSelect,
-.selectLabel[for*="embyselect"] {
-    display: none !important;
+.mainDetailButtons .btnPlay {
+    background-color: var(--netflixWhite) !important;
+    color: var(--netflixBlack) !important;
+    font-weight: 700 !important;
 }
 
-/* Hide the entire flex container if it contains track selectors */
-.flex-shrink-zero:has(.trackSelectionFieldContainer) {
-    display: none !important;
+.mainDetailButtons .btnPlay:hover {
+    background-color: rgba(255, 255, 255, 0.8) !important;
 }
 
-/* Alternative approach - hide by content */
-.selectLabel:contains('Video'),
-.selectLabel:contains('Audio') {
-    display: none !important;
+.mainDetailButtons .detailButton:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* Hide parent containers */
-.selectLabel[for*="embyselect"]:contains('Video'),
-.selectLabel[for*="embyselect"]:contains('Audio') {
-    display: none !important;
+/* Adjust the spacing so Video/Audio info gets covered */
+.itemMiscInfo-primary {
+    position: relative !important;
+    z-index: 1 !important;
 }
+/* ===== END DETAIL SECTION FIX ===== */
 
-.selectContainer:has(.selectLabel:contains('Video')),
-.selectContainer:has(.selectLabel:contains('Audio')) {
-    display: none !important;
-}
-
-/* Fix the OSD background gradient to match Netflix theme */
-.videoOsdBottom {
-    background: linear-gradient(to top, var(--netflixBlack) 0%, rgba(20, 20, 20, 0.9) 50%, transparent 100%) !important;
-    backdrop-filter: none !important;
-    padding: 20px !important;
-}
-
-/* Ensure the control area looks clean */
-.videoOsdBottom .osdControls {
-    display: flex !important;
-    align-items: center !important;
-    gap: 15px !important;
-}
-
-/* ===== END FIX ===== */
