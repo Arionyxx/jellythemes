@@ -1,164 +1,146 @@
+@import url('https://cdn.jsdelivr.net/gh/MakD/zombie-release@latest/zombie_revived.css');
+@import url('https://cdn.jsdelivr.net/gh/MakD/zombie-release@latest/color-schemes/hbo-max.css');
 
-/* Custom Netflix-like Theme for Jellyfin based on ZestyTheme's purple color scheme */
+/* Smaller category cards */
+.cardBox-cardBoxInner {
+    width: 140px !important;
+    height: 210px !important;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+.card .cardImageContainer {
+    height: 190px !important;
+}
 
+/* Horror-themed customizations */
 :root {
-  /* Colors based on Purple Scheme with Netflix vibe */
-  --accent: 229, 9, 20;          /* Netflix Red */
-  --accent-off: 128, 17, 23;     /* Darker Red */
-  --dark: 15, 15, 15;            /* Near Black Background */
-  --darkest: 10, 10, 10;         /* Deep Black */
-  --dark-highlight: 40, 40, 40;  /* Dark Gray for highlights */
-  --dark-apparent: 25, 25, 25;   /* Slightly lighter black */
-  --white: 235, 235, 235;        /* Off white text */
-  --white-off: 180, 180, 180;    /* Soft white for less important text */
-  --rounding: 8px;
-  --rounding-alt: 6px;
-  --rounding-large: 20px;
-  --rounding-circle: 50px;
+    --accent-color: #8B0000;
+    --primary-color: #1a1a1a;
+    --secondary-color: #2d1b1b;
+    --tertiary-color: #4a0e0e;
+    --text-color: #e0e0e0;
+    --backdrop-filter: blur(10px) brightness(0.3);
 }
 
-body, h1, h2, h3, h4 {
-  font-family: 'Montserrat', sans-serif !important;
-  color: rgb(var(--white));
-  background-color: rgb(var(--dark));
+/* Spooky background overlay */
+.backgroundContainer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(139, 0, 0, 0.1) 0%, 
+        rgba(0, 0, 0, 0.8) 50%, 
+        rgba(75, 14, 14, 0.2) 100%);
+    pointer-events: none;
+    z-index: 1;
 }
 
-/* Background and overlays */
-.layout-desktop .backgroundContainer, .layout-tv .backgroundContainer {
-  background-color: rgb(var(--darkest));
-  background-image: none !important;
-  opacity: 0.9;
+/* Horror-themed borders and shadows */
+.card:hover {
+    box-shadow: 0 8px 25px rgba(139, 0, 0, 0.6) !important;
+    border: 2px solid #8B0000 !important;
+    transform: scale(1.05) !important;
+    transition: all 0.3s ease !important;
 }
 
-.backdropImage {
-  filter: blur(30px) brightness(0.3) contrast(0.9) saturate(0.8);
-  background-color: rgb(var(--dark));
+/* Glowing text effects */
+.cardText-title {
+    text-shadow: 0 0 10px rgba(139, 0, 0, 0.8) !important;
+    color: #ff6b6b !important;
 }
 
-/* Main wrappers and panels */
-.layout-desktop .detailPageWrapperContainer {
-  margin-top: -85vh;
+/* Collections styling with stacked effect */
+.card[data-type="boxset"] {
+    position: relative;
 }
 
-.layout-desktop .detailPagePrimaryContainer, .layout-desktop .detailPageSecondaryContainer {
-  background-color: rgb(var(--dark-apparent));
-  border-radius: var(--rounding);
-  padding: 1.25em;
-  box-shadow: 0 0 15px rgba(var(--accent), 0.45);
-  color: rgb(var(--white));
+.card[data-type="boxset"]::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: 3px;
+    bottom: 3px;
+    background: linear-gradient(135deg, #8B0000, #4a0e0e);
+    border-radius: 8px;
+    z-index: -1;
+    opacity: 0.7;
 }
 
-.layout-desktop .detailPagePrimaryContent {
-  width: 50%;
+/* Colored and blurred media player */
+.videoOsdBottom {
+    background: linear-gradient(to top, 
+        rgba(139, 0, 0, 0.9) 0%, 
+        rgba(0, 0, 0, 0.7) 50%, 
+        transparent 100%) !important;
+    backdrop-filter: blur(15px) !important;
 }
 
-/* Card styles mimic Netflix poster style */
-.card {
-  border-radius: var(--rounding-alt);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.8);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: rgb(var(--darkest));
-}
-.card:hover, .card.show-animation:focus>.cardBox {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(var(--accent), 0.85);
-  z-index: 20;
+.videoOsdBottom .osdControls {
+    background: rgba(26, 26, 26, 0.8) !important;
+    border-radius: 10px !important;
+    padding: 15px !important;
+    box-shadow: 0 4px 20px rgba(139, 0, 0, 0.5) !important;
 }
 
-.cardImage {
-  border-radius: var(--rounding-alt);
+/* Progress bar horror styling */
+.mdl-slider::-webkit-slider-thumb {
+    background: #8B0000 !important;
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.8) !important;
 }
 
-/* Titles and text */
-.itemName, .parentName {
-  font-weight: 700;
-  font-size: 1.3rem;
-  color: rgb(var(--white));
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-  margin-bottom: 0.3em;
+.mdl-slider::-moz-range-thumb {
+    background: #8B0000 !important;
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.8) !important;
 }
 
-.itemName.originalTitle {
-  font-weight: 400;
-  font-style: italic;
-  color: rgb(var(--white-off));
-}
-
-.detailSectionContent {
-  font-size: 1rem;
-  color: rgb(var(--white-off));
-  margin-top: 1em;
-  line-height: 1.4;
-}
-
-/* Buttons themed to Netflix red */
-.btnPlay, .btnShuffle, .btnReplay, .btnUserRating {
-  background-color: rgb(var(--accent));
-  color: rgb(var(--white));
-  border: none;
-  border-radius: var(--rounding);
-  padding: 0.8em 1.6em;
-  font-weight: 700;
-  text-transform: uppercase;
-  transition: background-color 0.2s ease;
-  box-shadow: 0px 3px 0px rgb(180,0,0);
-  cursor: pointer;
-}
-
-.btnPlay:hover, .btnShuffle:hover, .btnReplay:hover, .btnUserRating:hover {
-  background-color: rgb(190, 0, 10);
-}
-
-/* Navigation bars and tabs */
-.skinHeader, .headerTabs, .headerRight {
-  background-color: rgb(var(--darkest));
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgb(var(--white));
-  font-weight: 600;
-  border-radius: 0 0 var(--rounding) var(--rounding);
-}
-
-/* Progress bars and sliders */
+/* Volume and progress bars */
 .mdl-slider-background-lower {
-  background-color: rgb(var(--accent));
+    background: linear-gradient(90deg, #8B0000, #ff6b6b) !important;
 }
 
-.iconOsdProgressInner, .iconOsdProgressOuter {
-  background-color: rgb(var(--accent));
+/* Custom horror message banner */
+.emby-tabs-slider::before {
+    content: "F383 Welcome to the Horror Collection F383";
+    color: #ff6b6b;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 0 0 15px rgba(139, 0, 0, 0.8);
+    position: absolute;
+    top: 0.5em;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    animation: flicker 3s infinite;
 }
 
-/* Scrollbar styling in dark mode */
-::-webkit-scrollbar {
-  width: 7px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: rgb(var(--accent));
-  border-radius: var(--rounding);
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
 }
 
-/* Hide elements that clutter Netflix UI */
-.layout-desktop .btnMoreCommands, .layout-desktop .btnShuffle, .layout-desktop .listViewUserDataButtons {
-  display: none !important;
+/* Condensed context menu with horror theme */
+.menuContainer {
+    background: rgba(26, 26, 26, 0.95) !important;
+    border: 1px solid #8B0000 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 32px rgba(139, 0, 0, 0.4) !important;
 }
 
-/* Footer and dialogs consistent color */
-.formDialogHeader, .formDialogFooter {
-  background-color: rgb(var(--darkest));
-  color: rgb(var(--white));
-  border-radius: var(--rounding);
+.listItem:hover {
+    background: rgba(139, 0, 0, 0.2) !important;
+    color: #ff6b6b !important;
 }
 
-/* Ensure all text is visible */
-* {
-  color: rgb(var(--white)) !important;
+/* Library tiles on homepage - smaller and horror-themed */
+.cardContent {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(75, 14, 14, 0.7)) !important;
+    border-radius: 10px !important;
 }
 
-/* Override any hidden display or opacity issues */
-.layout-desktop .detailImageContainer .card,
-.layout-desktop .itemName.originalTitle {
-  display: block !important;
-  opacity: 1 !important;
+/* Scary loading animations */
+.mdl-spinner__circle {
+    border-color: #8B0000 !important;
 }
-
