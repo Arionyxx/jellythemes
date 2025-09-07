@@ -1,6 +1,3 @@
-@import url('https://cdn.jsdelivr.net/gh/MakD/zombie-release@latest/zombie_revived.css');
-@import url('https://cdn.jsdelivr.net/gh/MakD/zombie-release@latest/color-schemes/hbo-max.css');
-
 /* Smaller category cards */
 .cardBox-cardBoxInner {
     width: 140px !important;
