@@ -678,3 +678,63 @@ body {
 .adminMenuOptions .navMenuOption[data-itemid="dashboard"] {
     display: flex !important;
 }
+
+/* ===== HIDE VIDEO/AUDIO SELECTION DROPDOWNS ===== */
+
+/* Hide the entire track selection containers */
+.selectVideoContainer,
+.selectAudioContainer,
+.trackSelectionFieldContainer {
+    display: none !important;
+}
+
+/* Hide by specific class combinations */
+.selectContainer.selectVideoContainer,
+.selectContainer.selectAudioContainer {
+    display: none !important;
+}
+
+/* Hide the select elements and their labels */
+.selectVideo.detailTrackSelect,
+.selectAudio.detailTrackSelect,
+.selectLabel[for*="embyselect"] {
+    display: none !important;
+}
+
+/* Hide the entire flex container if it contains track selectors */
+.flex-shrink-zero:has(.trackSelectionFieldContainer) {
+    display: none !important;
+}
+
+/* Alternative approach - hide by content */
+.selectLabel:contains('Video'),
+.selectLabel:contains('Audio') {
+    display: none !important;
+}
+
+/* Hide parent containers */
+.selectLabel[for*="embyselect"]:contains('Video'),
+.selectLabel[for*="embyselect"]:contains('Audio') {
+    display: none !important;
+}
+
+.selectContainer:has(.selectLabel:contains('Video')),
+.selectContainer:has(.selectLabel:contains('Audio')) {
+    display: none !important;
+}
+
+/* Fix the OSD background gradient to match Netflix theme */
+.videoOsdBottom {
+    background: linear-gradient(to top, var(--netflixBlack) 0%, rgba(20, 20, 20, 0.9) 50%, transparent 100%) !important;
+    backdrop-filter: none !important;
+    padding: 20px !important;
+}
+
+/* Ensure the control area looks clean */
+.videoOsdBottom .osdControls {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+}
+
+/* ===== END FIX ===== */
