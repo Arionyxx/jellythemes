@@ -1,0 +1,355 @@
+/* Netflix 2025 Theme for Jellyfin */
+/* Based on actual Netflix CSS from September 2025 */
+
+/* Import Netflix Sans font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Root variables - Netflix 2025 colors */
+:root {
+    --netflix-red: #e50914;
+    --netflix-black: #000000;
+    --netflix-dark-gray: #141414;
+    --netflix-medium-gray: #2f2f2f;
+    --netflix-light-gray: #757575;
+    --netflix-white: #ffffff;
+    --netflix-hover: rgba(255,255,255,0.1);
+    --netflix-accent: #46d369;
+}
+
+/* Global body styling */
+body {
+    background-color: var(--netflix-black) !important;
+    color: var(--netflix-white) !important;
+    font-family: 'Inter', 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-weight: 400 !important;
+}
+
+/* Main navigation - Netflix 2025 style top bar */
+.skinHeader {
+    background: linear-gradient(180deg, rgba(0,0,0,0.7) 10%, transparent) !important;
+    border-bottom: none !important;
+    padding: 0 60px !important;
+    height: 70px !important;
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Netflix logo area */
+.headerLeft {
+    display: flex !important;
+    align-items: center !important;
+    height: 70px !important;
+}
+
+/* Navigation tabs - Netflix 2025 horizontal layout */
+.headerTabs {
+    display: flex !important;
+    gap: 20px !important;
+    margin-left: 40px !important;
+}
+
+.headerTabs .headerTab {
+    color: var(--netflix-white) !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    padding: 8px 0 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    border-bottom: 2px solid transparent !important;
+}
+
+.headerTabs .headerTab:hover,
+.headerTabs .headerTab.selected {
+    color: var(--netflix-white) !important;
+    border-bottom-color: var(--netflix-red) !important;
+}
+
+/* Right side - search, notifications, profile */
+.headerRight {
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+}
+
+/* Search styling */
+.searchFields {
+    background: rgba(0,0,0,0.75) !important;
+    border: 1px solid rgba(255,255,255,0.15) !important;
+    border-radius: 4px !important;
+    padding: 8px 12px !important;
+    color: var(--netflix-white) !important;
+    font-size: 14px !important;
+    min-width: 250px !important;
+}
+
+.searchFields:focus {
+    border-color: var(--netflix-white) !important;
+    background: rgba(0,0,0,0.9) !important;
+    outline: none !important;
+}
+
+/* Main content area */
+.mainDrawer-drawer {
+    background-color: var(--netflix-black) !important;
+    margin-top: 70px !important;
+}
+
+/* Homepage sections */
+.homePage {
+    background-color: var(--netflix-black) !important;
+    padding: 0 60px !important;
+}
+
+/* Section headers */
+.sectionTitle {
+    color: var(--netflix-white) !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    margin: 40px 0 20px 0 !important;
+}
+
+/* Card containers - Netflix 2025 larger cards */
+.itemsContainer {
+    display: flex !important;
+    gap: 8px !important;
+    padding: 0 !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+}
+
+.itemsContainer::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Individual cards */
+.card {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    min-width: 250px !important;
+    position: relative !important;
+}
+
+.card:hover {
+    transform: scale(1.05) !important;
+    z-index: 10 !important;
+}
+
+/* Card images */
+.cardImage {
+    width: 100% !important;
+    height: 140px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+}
+
+/* Card text overlay */
+.cardText {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8)) !important;
+    padding: 20px 12px 12px !important;
+    color: var(--netflix-white) !important;
+}
+
+.cardTitle {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin-bottom: 4px !important;
+    line-height: 1.2 !important;
+}
+
+/* Play buttons - Netflix style */
+.cardOverlayButton {
+    background: var(--netflix-white) !important;
+    color: var(--netflix-black) !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 8px 16px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.cardOverlayButton:hover {
+    background: rgba(255,255,255,0.8) !important;
+}
+
+/* Secondary buttons */
+.cardOverlayButton.secondary {
+    background: rgba(42,42,42,0.8) !important;
+    color: var(--netflix-white) !important;
+    border: 2px solid rgba(255,255,255,0.5) !important;
+}
+
+.cardOverlayButton.secondary:hover {
+    border-color: var(--netflix-white) !important;
+    background: rgba(42,42,42,1) !important;
+}
+
+/* Sidebar styling */
+.mainDrawer {
+    background-color: var(--netflix-dark-gray) !important;
+}
+
+.navMenuOption {
+    color: var(--netflix-light-gray) !important;
+    font-weight: 500 !important;
+    padding: 12px 20px !important;
+    border-radius: 4px !important;
+    margin: 2px 8px !important;
+    transition: all 0.2s ease !important;
+}
+
+.navMenuOption:hover,
+.navMenuOption.selected {
+    background-color: var(--netflix-hover) !important;
+    color: var(--netflix-white) !important;
+}
+
+/* Modal/Dialog styling */
+.dialog {
+    background-color: var(--netflix-dark-gray) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: var(--netflix-white) !important;
+}
+
+/* Form inputs */
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+    background: rgba(22,22,22,0.7) !important;
+    border: 1px solid rgba(128,128,128,0.7) !important;
+    border-radius: 4px !important;
+    color: var(--netflix-white) !important;
+    font-size: 16px !important;
+    padding: 12px !important;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--netflix-white) !important;
+    background: rgba(22,22,22,0.9) !important;
+    outline: none !important;
+}
+
+/* Buttons */
+.raised {
+    background: var(--netflix-red) !important;
+    color: var(--netflix-white) !important;
+    border: none !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+    padding: 12px 24px !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.raised:hover {
+    background: #f40612 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Video player */
+.videoPlayerContainer {
+    background: var(--netflix-black) !important;
+}
+
+/* Progress bars */
+.sliderBubble {
+    background: var(--netflix-red) !important;
+}
+
+.progressring {
+    color: var(--netflix-red) !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1) !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3) !important;
+    border-radius: 3px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.5) !important;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--netflix-dark-gray) !important;
+    color: var(--netflix-light-gray) !important;
+    border-top: none !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .skinHeader {
+        padding: 0 20px !important;
+    }
+    
+    .homePage {
+        padding: 0 20px !important;
+    }
+    
+    .headerTabs {
+        display: none !important;
+    }
+    
+    .card {
+        min-width: 200px !important;
+    }
+}
+
+/* Loading animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+    animation: fadeIn 0.5s ease-out !important;
+}
+
+/* Additional Netflix-specific elements */
+.ratingContainer {
+    color: var(--netflix-accent) !important;
+}
+
+.criticRating {
+    color: var(--netflix-red) !important;
+}
+
+/* Continue watching progress indicators */
+.progressBar {
+    background: var(--netflix-red) !important;
+    height: 4px !important;
+    border-radius: 2px !important;
+}
+
+.progressBarBackground {
+    background: rgba(255,255,255,0.3) !important;
+}
