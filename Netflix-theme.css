@@ -527,6 +527,7 @@ body {
     pointer-events: none;
 }
 
+/* Version: 2.1 - Updated positioning */
 /* Hero content positioning */
 .detailPagePrimaryContainer {
     position: absolute !important;
