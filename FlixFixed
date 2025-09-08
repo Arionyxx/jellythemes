@@ -1,0 +1,689 @@
+/* Netflix-Style Theme for Jellyfin */
+/* Based on ElegantFin Theme structure by lscambo13 */
+/* Modified to match Netflix UI/UX */
+
+/* Netflix Sans Font Fallback */
+@import url('https://cdn.jsdelivr.net/gh/Arionyxx/jellythemes@main/netflix-sans-core-variable-full.woff2');
+
+:root {
+    --netflixThemeFooterText: "Netflix Theme v2.0";
+    color-scheme: dark;
+    
+    /* Netflix Color Palette */
+    --netflixBlack: #141414;
+    --netflixDarkGray: #181818;
+    --netflixGray: #2f2f2f;
+    --netflixLightGray: #404040;
+    --netflixTextGray: #b3b3b3;
+    --netflixDimGray: #808080;
+    --netflixRed: #e50914;
+    --netflixWhite: #ffffff;
+    --netflixGreen: #46d369;
+    
+    /* Theme Variables Mapping */
+    --darkerGradientPoint: var(--netflixBlack);
+    --darkerGradientPointAlpha: rgba(20, 20, 20, 0.95);
+    --lighterGradientPoint: var(--netflixDarkGray);
+    --lighterGradientPointAlpha: rgba(24, 24, 24, 0.95);
+    --borderColor: var(--netflixGray);
+    --lighterBorderColor: rgba(255, 255, 255, 0.1);
+    --headerColor: rgba(20, 20, 20, 0.95);
+    --drawerColor: rgba(24, 24, 24, 0.98);
+    --selectorBackgroundColor: var(--netflixGray);
+    --selectorBackgroundColorAlpha: rgba(47, 47, 47, 0.7);
+    --btnDeleteColor: var(--netflixRed);
+    --btnDeleteBorderColor: var(--netflixRed);
+    --btnSubmitColor: var(--netflixWhite);
+    --btnSubmitBorderColor: var(--netflixWhite);
+    --checkboxCheckedBgColor: var(--netflixRed);
+    --highlightOutlineColor: var(--netflixRed);
+    --textColor: var(--netflixWhite);
+    --dimTextColor: var(--netflixTextGray);
+    --activeColorAlpha: rgba(229, 9, 20, 0.8);
+    --activeColor: var(--netflixRed);
+    --tableBodyColor: var(--netflixDarkGray);
+    --uiAccentColor: var(--netflixRed);
+    --btnMiniPlayColor: var(--netflixWhite);
+    --btnPlayBorderColor: var(--netflixWhite);
+    
+    /* Netflix-specific gradients */
+    --backgroundGradient: var(--netflixBlack);
+    --cardBackgroundGradient: var(--netflixDarkGray);
+    --hoverGradientA: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+    --hoverGradientB: rgba(0, 0, 0, 0.4);
+    
+    /* Netflix shadows */
+    --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    --hoverShadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+    
+    /* Netflix border radius */
+    --largerRadius: 4px;
+    --largeRadius: 4px;
+    --smallRadius: 4px;
+    --smallerRadius: 2px;
+    --borderWidth: 0;
+    --defaultBorder: none;
+    --defaultLighterBorder: none;
+    
+    /* Login page */
+    --loginPageBgUrl: url("");
+    --loginPageText: "Sign in";
+    
+    /* Blur effects */
+    --blurSmallest: blur(2px);
+    --blurDefault: blur(5px);
+    --blurLarge: blur(10px);
+    --blurLargest: blur(20px);
+    
+    /* Icons */
+    --iconPack: 'Material Icons Round';
+}
+
+@font-face {
+font-family: 'Netflix Sans';
+src: url('https://cdn.jsdelivr.net/gh/Arionyxx/jellythemes@main/netflix-sans-core-variable-full.woff2') format('woff2-variations');
+font-weight: 100 900;
+font-style: normal;
+font-display: swap;
+}
+
+/* Base styles */
+html {
+font-family: 'Netflix Sans', 'Helvetica Neue', Arial, sans-serif !important;
+font-weight: 400;
+-webkit-tap-highlight-color: transparent !important;
+background-color: var(--netflixBlack);
+color: var(--netflixWhite);
+}
+
+body {
+background-color: var(--netflixBlack);
+color: var(--netflixWhite);
+}
+
+/* Remove all borders and outlines for Netflix look */
+* {
+    outline: none !important;
+}
+
+/* Material Icons */
+@font-face {
+    font-family: 'Material Icons Round';
+    font-style: normal;
+    font-weight: 100 700;
+    src: url(https://fonts.gstatic.com/s/materialsymbolsrounded/v230/sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190Fjzag.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: var(--iconPack) !important;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+
+/* Header/Navigation Netflix Style */
+.skinHeader {
+    background-color: var(--headerColor) !important;
+    backdrop-filter: none;
+    height: 68px;
+    position: fixed;
+    transition: background-color 0.4s;
+}
+
+.layout-mobile .skinHeader {
+    height: 41px;
+}
+
+.headerLeft {
+    align-items: center;
+}
+
+.headerLogo {
+    margin-right: 2rem;
+}
+
+.headerButton {
+    color: var(--netflixTextGray);
+    font-size: 0.875rem;
+    font-weight: 400;
+    transition: color 0.4s;
+    margin: 0 0.5rem;
+}
+
+.headerButton:hover {
+    color: var(--netflixWhite);
+}
+
+.headerButton.headerButtonActive {
+    color: var(--netflixWhite);
+    font-weight: 700;
+}
+
+/* Netflix Card Styles */
+.card {
+    padding: 0.125rem;
+    transition: transform 0.3s ease-out, z-index 0.3s;
+    cursor: pointer;
+}
+
+.cardScalable {
+    border-radius: var(--largeRadius);
+    border: none !important;
+    overflow: hidden !important;
+    transition: transform 0.3s ease-out;
+    background-color: var(--netflixDarkGray);
+}
+
+.cardImageContainer {
+    transition: transform 0.3s ease-out;
+    background-color: transparent;
+}
+
+/* Netflix hover effect */
+.card.card-hoverable:hover {
+    transform: scale(1.3);
+    z-index: 10;
+    transition-delay: 0.5s;
+}
+
+.card.card-hoverable:hover .cardScalable {
+    box-shadow: var(--hoverShadow);
+}
+
+.card.card-hoverable:hover .cardImageContainer {
+    transform: scale(1);
+}
+
+/* Card overlays */
+.cardOverlayContainer {
+    background: var(--hoverGradientA);
+    transition: opacity 0.3s;
+}
+
+.cardTextCentered {
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Buttons Netflix Style */
+.emby-button {
+    font-family: inherit;
+    font-weight: 500;
+    border-radius: var(--smallRadius);
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.btnPlay {
+    background-color: var(--netflixWhite) !important;
+    color: var(--netflixBlack) !important;
+    border: none !important;
+    font-weight: 700;
+    padding: 0.5rem 1.5rem;
+}
+
+.btnPlay:hover {
+    opacity: 0.8;
+}
+
+.button-secondary {
+    background-color: rgba(109, 109, 110, 0.7) !important;
+    color: var(--netflixWhite) !important;
+    border: 1px solid var(--netflixDimGray) !important;
+}
+
+/* Progress bars Netflix style */
+.itemProgressBar {
+    background-color: var(--netflixRed) !important;
+    height: 3px;
+}
+
+.itemProgressBarForeground {
+    background-color: var(--netflixRed) !important;
+}
+
+/* Section headers */
+.sectionTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--netflixWhite);
+    margin-bottom: 0.5rem;
+}
+
+.sectionTitle:hover {
+    color: var(--netflixTextGray);
+}
+
+/* Scrollbars Netflix style */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--netflixGray);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--netflixLightGray);
+}
+
+/* Dashboard footer */
+.dashboardFooter::after {
+    content: var(--netflixThemeFooterText);
+    font-size: 0.8em;
+    color: var(--netflixDimGray);
+}
+
+/* Media info items */
+.mediaInfoItem {
+    font-size: 0.875rem;
+    color: var(--netflixTextGray);
+    font-weight: 400;
+}
+
+.mediaInfoOfficialRating {
+    background: transparent !important;
+    border: 1px solid var(--netflixTextGray) !important;
+    color: var(--netflixTextGray);
+    padding: 0.125rem 0.375rem;
+    font-size: 0.75rem;
+}
+
+/* Match percentage (Netflix style) */
+.mediaInfoCriticRating {
+    color: var(--netflixGreen) !important;
+    font-weight: 700;
+}
+
+/* Detail page Netflix style */
+.detailPageWrapperContainer {
+    background: var(--netflixBlack);
+}
+
+.itemBackdrop {
+    height: 80vh;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* Play button overlay */
+.detailImageContainer .btnPlay {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.125rem;
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Dialog/Modal Netflix style */
+.dialog {
+    background-color: var(--netflixDarkGray) !important;
+    border-radius: var(--largeRadius);
+    box-shadow: 0 8px 28px 0 rgba(0, 0, 0, 0.8);
+}
+
+.dialogHeader {
+    background-color: transparent !important;
+    border-bottom: 1px solid var(--netflixGray);
+}
+
+/* Input fields Netflix style */
+.emby-input,
+.emby-textarea {
+    background-color: var(--netflixGray) !important;
+    border: 1px solid var(--netflixLightGray) !important;
+    color: var(--netflixWhite) !important;
+    border-radius: var(--smallRadius);
+}
+
+.emby-input:focus,
+.emby-textarea:focus {
+    border-color: var(--netflixWhite) !important;
+    background-color: var(--netflixLightGray) !important;
+}
+
+/* Tabs Netflix style */
+.emby-tab-button {
+    color: var(--netflixTextGray) !important;
+    font-weight: 400;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.emby-tab-button:hover {
+    color: var(--netflixWhite) !important;
+}
+
+.emby-tab-button.emby-tab-button-active {
+    color: var(--netflixWhite) !important;
+    border-bottom-color: var(--netflixRed) !important;
+    font-weight: 700;
+}
+
+/* Remove unnecessary borders and shadows */
+.cardBox {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.paperList {
+    background-color: transparent !important;
+}
+
+.listItem {
+    background-color: transparent !important;
+    border-bottom: 1px solid var(--netflixGray) !important;
+}
+
+.listItem:hover {
+    background-color: var(--netflixGray) !important;
+}
+
+/* Loading spinner Netflix style */
+.mdl-spinner__layer {
+    border-color: var(--netflixRed) !important;
+}
+
+/* Selection color */
+::selection {
+    background: var(--activeColorAlpha);
+    color: var(--netflixWhite);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .card.card-hoverable:hover {
+        transform: scale(1.1);
+    }
+    
+    .sectionTitle {
+        font-size: 1.125rem;
+    }
+}
+
+/* Hide home button (Netflix doesn't have one) */
+.headerHomeButton {
+    display: none;
+}
+
+/* Smooth scrolling */
+.itemsContainer {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Netflix-style horizontal scroll */
+.emby-scrollbuttons {
+    background: linear-gradient(to right, transparent, var(--netflixBlack));
+}
+
+.emby-scrollbuttons-button {
+    background-color: rgba(20, 20, 20, 0.5) !important;
+    color: var(--netflixWhite) !important;
+}
+
+.emby-scrollbuttons-button:hover {
+    background-color: rgba(20, 20, 20, 0.8) !important;
+}
+
+/* NETFLIX-SPECIFIC LAYOUT CHANGES */
+
+/* Navigation Menu - Netflix Style */
+.mainDrawer {
+    background-color: var(--netflixBlack) !important;
+    width: 240px;
+}
+
+.navMenuOption {
+    font-size: 0.875rem !important;
+    color: var(--netflixTextGray) !important;
+    padding: 0.75rem 1rem !important;
+    font-weight: 400;
+}
+
+.navMenuOption:hover {
+    background-color: var(--netflixGray) !important;
+    color: var(--netflixWhite) !important;
+}
+
+.navMenuOption.navMenuOption-selected {
+    background-color: transparent !important;
+    color: var(--netflixWhite) !important;
+    font-weight: 700 !important;
+    border-left: 3px solid var(--netflixRed) !important;
+}
+
+/* Hide unnecessary menu items to match Netflix */
+.navMenuOption[data-itemid="livetv"],
+.navMenuOption[data-itemid="channels"],
+.navMenuOption[data-itemid="recordings"],
+.navMenuOption[data-itemid="schedule"],
+.navMenuOption[data-itemid="seriesrecordings"] {
+    display: none !important;
+}
+
+/* Simplify library sections like Netflix */
+.navMenuOption .navMenuOptionText {
+    margin-left: 0 !important;
+}
+
+/* Netflix-style header navigation */
+.headerTabs {
+    margin-left: 2rem;
+}
+
+.emby-tab-button {
+    font-size: 0.875rem !important;
+    margin: 0 1rem !important;
+    color: var(--netflixTextGray) !important;
+    text-transform: none !important;
+    font-weight: 400 !important;
+    letter-spacing: normal !important;
+}
+
+.emby-tab-button:hover {
+    color: var(--netflixTextGray) !important;
+    transition: color 0.4s;
+}
+
+.emby-tab-button-active {
+    color: var(--netflixWhite) !important;
+    font-weight: 700 !important;
+}
+
+/* Netflix home screen hero section */
+.backdropContainer {
+    height: 80vh !important;
+    position: relative;
+}
+
+.backdropImageWrapper {
+    height: 100% !important;
+}
+
+.backdropImage {
+    filter: brightness(0.6) !important;
+}
+
+/* Add gradient overlay like Netflix */
+.backdropContainer::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, var(--netflixBlack) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+/* Hero content positioning */
+.detailPagePrimaryContainer {
+    position: absolute !important;
+    bottom: 10% !important;
+    left: 4% !important;
+    z-index: 2;
+    max-width: 40%;
+}
+
+/* Netflix-style category rows */
+.verticalSection {
+    margin-bottom: 3vw !important;
+}
+
+.sectionTitle {
+    font-size: 1.4vw !important;
+    font-weight: 700 !important;
+    color: var(--netflixWhite) !important;
+    margin-left: 4% !important;
+    margin-bottom: 0.5em !important;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.sectionTitle:hover {
+    color: var(--netflixTextGray) !important;
+}
+
+/* Add "Explore All" on hover */
+.sectionTitle::after {
+    content: " ›";
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 1.2em;
+}
+
+.sectionTitle:hover::after {
+    opacity: 1;
+}
+
+/* Netflix card container spacing */
+.itemsContainer {
+    padding: 0 4% !important;
+}
+
+/* Netflix profile menu */
+.headerUserButton {
+    margin-right: 1rem !important;
+}
+
+.headerUserButtonRound {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 4px !important;
+}
+
+/* Search button Netflix style */
+.headerSearchButton {
+    margin-right: 1rem !important;
+}
+
+/* Notification button Netflix style */
+.headerSyncButton {
+    margin-right: 1rem !important;
+}
+
+/* Billboard/Hero buttons Netflix style */
+.detailPagePrimaryContainer .btnPlay {
+    font-size: 1.2vw !important;
+    padding: 0.5rem 2rem !important;
+    margin-right: 1rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+.detailPagePrimaryContainer .button-secondary {
+    font-size: 1.2vw !important;
+    padding: 0.5rem 2rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+/* My List button style */
+.btnUserItemRating {
+    background-color: transparent !important;
+    border: 2px solid var(--netflixTextGray) !important;
+    border-radius: 50% !important;
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    padding: 0 !important;
+    margin-left: 1rem !important;
+}
+
+/* Genre tags Netflix style */
+.itemGenres {
+    margin-top: 1rem !important;
+}
+
+.itemGenres a {
+    color: var(--netflixTextGray) !important;
+    font-size: 0.9rem !important;
+}
+
+/* Continue Watching progress bars */
+.itemProgressBar {
+    height: 4px !important;
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.itemProgressBarForeground {
+    background-color: var(--netflixRed) !important;
+}
+
+/* Remove Jellyfin branding */
+.pageTitleWithDefaultLogo {
+    background-image: none !important;
+}
+
+.pageTitleWithDefaultLogo::before {
+    content: "FEMBOYFLIX";
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--netflixRed);
+    letter-spacing: 0.1em;
+}
+
+/* Adjust content sections to be more Netflix-like */
+.view-withTabs {
+    padding-top: 0 !important;
+}
+
+.skinBody {
+    background-color: var(--netflixBlack) !important;
+}
+
+/* Netflix-style dialog adjustments */
+.dialog-blur {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Hide dashboard link for regular users */
+.navMenuOption[data-itemid="dashboard"] {
+    display: none !important;
+}
+
+/* Show only for admin */
+.adminMenuOptions .navMenuOption[data-itemid="dashboard"] {
+    display: flex !important;
+}
