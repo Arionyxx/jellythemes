@@ -81,10 +81,11 @@
 
 /* Base styles */
 html {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    -webkit-tap-highlight-color: transparent !important;
-    background-color: var(--netflixBlack);
+  font-family: 'Netflix Sans', 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 400;
+  -webkit-tap-highlight-color: transparent !important;
+  background-color: var(--netflixBlack);
+  color: var(--netflixWhite);
 }
 
 body {
