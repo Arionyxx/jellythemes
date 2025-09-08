@@ -102,7 +102,7 @@ body {
     font-family: 'Material Icons Round';
     font-style: normal;
     font-weight: 100 700;
-    src: url('https://fonts.gstatic.com/s/materialsymbolsrounded/v230/sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190Fjzag.woff2') format('woff2');
+    src: url(https://fonts.gstatic.com/s/materialsymbolsrounded/v230/sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190Fjzag.woff2) format('woff2');
 }
 
 .material-icons {
@@ -527,11 +527,10 @@ body {
     pointer-events: none;
 }
 
-/* Version: 2.1 - Updated positioning */
 /* Hero content positioning */
 .detailPagePrimaryContainer {
     position: absolute !important;
-    bottom: 20% !important;
+    bottom: 10% !important;
     left: 4% !important;
     z-index: 2;
     max-width: 40%;
@@ -603,6 +602,7 @@ body {
     align-items: center !important;
     gap: 0.5rem !important;
 }
+
 .detailPagePrimaryContainer .button-secondary {
     font-size: 1.2vw !important;
     padding: 0.5rem 2rem !important;
