@@ -648,7 +648,7 @@ body {
 }
 
 .pageTitleWithDefaultLogo::before {
-    content: "NETFLIX";
+    content: "FEMBOYFLIX";
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
     color: var(--netflixRed);
