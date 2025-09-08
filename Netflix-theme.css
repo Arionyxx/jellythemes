@@ -79,18 +79,26 @@
     --iconPack: 'Material Icons Round';
 }
 
+@font-face {
+font-family: 'Netflix Sans';
+src: url('https://cdn.jsdelivr.net/gh/Arionyxx/jellythemes@main/netflix-sans-core-variable-full.woff2') format('woff2-variations');
+font-weight: 100 900;
+font-style: normal;
+font-display: swap;
+}
+
 /* Base styles */
 html {
-  font-family: 'Netflix Sans', 'Helvetica Neue', Arial, sans-serif !important;
-  font-weight: 400;
-  -webkit-tap-highlight-color: transparent !important;
-  background-color: var(--netflixBlack);
-  color: var(--netflixWhite);
+font-family: 'Netflix Sans', 'Helvetica Neue', Arial, sans-serif !important;
+font-weight: 400;
+-webkit-tap-highlight-color: transparent !important;
+background-color: var(--netflixBlack);
+color: var(--netflixWhite);
 }
 
 body {
-    background-color: var(--netflixBlack);
-    color: var(--netflixWhite);
+background-color: var(--netflixBlack);
+color: var(--netflixWhite);
 }
 
 /* Remove all borders and outlines for Netflix look */
