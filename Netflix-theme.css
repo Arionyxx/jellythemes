@@ -3,7 +3,7 @@
 /* Modified to match Netflix UI/UX */
 
 /* Netflix Sans Font Fallback */
-@import url('https://cdn.jsdelivr.net/gh/Arionyxx/jellythemes@main/netflix-sans-core-variable-full.woff2');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 :root {
     --netflixThemeFooterText: "Netflix Theme v2.0";
