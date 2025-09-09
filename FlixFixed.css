@@ -657,7 +657,7 @@ color: var(--netflixWhite);
 }
 
 .pageTitleWithDefaultLogo::before {
-    content: "FEMBOYFLIX";
+    content: "FEMFLIX";
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
     color: var(--netflixRed);
